@@ -1,85 +1,71 @@
 'use client';
+import React from 'react';
 import Image from 'next/image';
 
 const About = () => {
   const achievements = [
     {
       title: '20+ Years Experience',
-      description: 'Serving patients with dedication and expertise'
+      description: 'Providing exceptional healthcare services since 2003'
     },
     {
       title: 'Board Certified',
-      description: 'American Board of Internal Medicine'
+      description: 'American Board of Medical Specialties certified physician'
     },
     {
-      title: 'Research Publications',
-      description: '50+ papers in renowned medical journals'
-    },
-    {
-      title: 'Patient Satisfaction',
-      description: '98% positive patient feedback'
+      title: 'Advanced Technology',
+      description: 'State-of-the-art medical equipment and facilities'
     }
   ];
 
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Left - Doctor's Image */}
-          <div className="w-full lg:w-1/2">
-            <div className="relative w-full aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-50 rounded-full"></div>
-              <div className="absolute inset-4">
-                <Image
-                  src="/doctor-profile.jpg"
-                  alt="Dr. Smith"
-                  fill
-                  className="object-cover rounded-full"
-                />
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Doctor Image */}
+          <div className="relative">
+            <div className="aspect-square rounded-full overflow-hidden shadow-xl max-w-md mx-auto">
+              {/* Replace with actual doctor image */}
+              <div className="absolute inset-0 bg-blue-100"></div>
             </div>
+            {/* Decorative elements */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-100 rounded-full opacity-50"></div>
+            <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-200 rounded-full opacity-50"></div>
           </div>
 
-          {/* Right - Content */}
-          <div className="w-full lg:w-1/2 space-y-8">
+          {/* Right: Content */}
+          <div className="space-y-8">
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Dr. Sarah Smith
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Dr. Sarah Johnson
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                With over two decades of experience in internal medicine, Dr. Smith has 
-                dedicated her career to providing comprehensive, patient-centered care. 
-                Her approach combines cutting-edge medical expertise with compassionate 
-                understanding of each patient's unique needs.
+              <p className="text-gray-600 leading-relaxed">
+                With over two decades of experience in family medicine, Dr. Johnson 
+                has dedicated her career to providing comprehensive healthcare for 
+                patients of all ages. Her approach combines evidence-based medicine 
+                with compassionate care.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {achievements.map((achievement, index) => (
-                  <div
-                    key={index}
-                    className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
-                  >
-                    <h3 className="text-lg font-semibold text-blue-600 mb-2">
-                      {achievement.title}
-                    </h3>
-                    <p className="text-gray-600">{achievement.description}</p>
-                  </div>
-                ))}
-              </div>
             </div>
-            <button className="text-blue-600 font-medium hover:text-blue-700 transition-colors flex items-center gap-2">
-              Read Full Bio
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
+
+            {/* Achievements */}
+            <div className="grid gap-6">
+              {achievements.map((achievement, index) => (
+                <div 
+                  key={index}
+                  className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-100"
+                >
+                  <h3 className="font-semibold text-lg text-blue-600 mb-2">
+                    {achievement.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {achievement.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <button className="text-blue-600 font-medium hover:text-blue-700 transition-colors duration-200">
+              Read More →
             </button>
           </div>
         </div>
